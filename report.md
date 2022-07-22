@@ -25,11 +25,75 @@ Testing other docker commands:
 ## Example 03
 Created Dockerfile:
 ```
+# Comments in Dockerfiles
+FROM python:3.5
+
+# Update and install dependencies
+RUN apt-get update
+RUN pip install Flask
+
+# Add code
+ADD . /opt/webapp/
+
+# Set the working directory
+WORKDIR /opt/webapp
+
+# Set environment variables
+ENV FLASK_APP=hello.py
+
+# Expose the application's port
+EXPOSE 5000
+
+# Run the application
+CMD ["flask", "run", "--host=0.0.0.0"]
 
 ```
 
-Building Dockerfile:
-
-Running container:
+Building Dockerfile & Running container:
+![ex3_build_Screenshot 2022-07-22 120454](https://user-images.githubusercontent.com/95945800/180479592-5ae846e7-8015-4b38-a80d-7f8ce99fb814.jpg)
 
 Application on localhost:
+![ex3_webapp_Screenshot 2022-07-22 120544](https://user-images.githubusercontent.com/95945800/180479609-8bb2d1b7-cccc-462e-92a9-ebd887ff5463.jpg)
+## Example 04
+Created Dockerfile:
+```
+# Use node 10.15.3 LTS
+FROM node:10.15.3
+ENV LAST_UPDATED 20190325T175400
+
+# Copy source code
+COPY . /app
+
+# Change working directory
+WORKDIR /app
+
+# Install dependencies
+RUN npm install
+
+# Fix up some of the issues
+RUN npm audit fix
+
+# Expose API port to the outside
+EXPOSE 1337
+
+# Launch application
+CMD ["node","app.js"]
+```
+Building Dockerfile:
+
+Listing all images available:
+
+Running `message-app` Dockerfile:
+
+Created YAML file:
+```
+
+```
+Building `docker-compose`:
+
+Running the services:
+
+Using app commands:
+
+
+
