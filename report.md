@@ -80,20 +80,45 @@ EXPOSE 1337
 CMD ["node","app.js"]
 ```
 Building Dockerfile:
+![04-01](https://user-images.githubusercontent.com/18493608/160162501-35399953-54be-433d-b218-b46b90131b37.png)
 
 Listing all images available:
+![ex4_first_images_Screenshot 2022-07-22 123008](https://user-images.githubusercontent.com/95945800/180806428-292df38c-4d68-46a3-aa77-2bf5a1074f39.jpg)
 
 Running `message-app` Dockerfile:
+![04-03](https://user-images.githubusercontent.com/18493608/160162510-8bdddea0-8880-42ee-8195-eaf36fd6a0da.png)
 
 Created YAML file:
 ```
-
+version: '3'
+services:
+  mongo:
+    image: mongo:4.0.7
+    volumes:
+      - mongo-data:/data/db
+    expose:
+      - "27017"
+  app:
+    build: .
+    ports:
+            - "1337:1337"
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URL=mongodb://mongo/messageApp
+volumes:
+  mongo-data:
 ```
 Building `docker-compose`:
+![04-04](https://user-images.githubusercontent.com/18493608/160162527-1e178942-a0b2-4f85-9e61-5b1bcf148e4d.png)
 
 Running the services:
+![04-05](https://user-images.githubusercontent.com/18493608/160162539-44ef4367-a213-4e5e-902d-add24df4100c.png)
 
 Using app commands:
-
+![04-06](https://user-images.githubusercontent.com/18493608/160162564-30bdf8c9-ae4f-430a-b448-bdb291c0ba0f.png)
+![04-07](https://user-images.githubusercontent.com/18493608/160162581-47194450-c45f-476a-ada9-9860fb6e91a6.png)
 
 
