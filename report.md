@@ -112,7 +112,8 @@ volumes:
   mongo-data:
 ```
 Building `docker-compose`:
-![Building_compose_160162527-1e178942-a0b2-4f85-9e61-5b1bcf148e4d](https://user-images.githubusercontent.com/95945800/180810171-d7d29f48-0195-44f8-bded-00e640d8ac8d.png)
+![BUilding_docker_compose_Screenshot 2022-07-25 110639](https://user-images.githubusercontent.com/95945800/180811743-08a5f409-641d-4a7e-9f2c-1fb618e03d2a.jpg)
+
 
 Running the services:
 ![Running_servers_160162539-44ef4367-a213-4e5e-902d-add24df4100c](https://user-images.githubusercontent.com/95945800/180810339-e4119b31-b35f-48f7-a546-58464a6c466d.png)
